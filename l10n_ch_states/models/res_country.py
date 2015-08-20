@@ -1,15 +1,8 @@
 # -*- coding: utf-8 -*-
-#
-#  File: hr_contract.py
-#  Module: l10n_ch_hr_payroll
-#
-#  Created by sge@open-net.ch
-#
-#  Copyright (c) 2014 Open-Net Ltd.
 ##############################################################################
 #
-#    OpenERP, Open Source Management Solution
-#    Copyright (C) 2004-2010 Tiny SPRL (<http://tiny.be>).
+#    Author: Mathias Neef
+#    Copyright 2015 copadoMEDIA UG
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -26,15 +19,10 @@
 #
 ##############################################################################
 
-
-from openerp.osv import fields, orm
-import openerp.addons.decimal_precision as dp
+from openerp import fields, models
 
 
-class hr_contract(orm.Model):
-    _inherit = 'hr.contract'
-    _columns = {
-        'lpp_rate': fields.float('LPP Rate',
-                                 digits_compute=dp.get_precision(
-                                     'Payroll Rate')),
-        }
+class CountryState(models.Model):
+    _inherit = 'res.country.state'
+
+    name = fields.Char(translate=True)

@@ -1,15 +1,8 @@
 # -*- coding: utf-8 -*-
-#
-#  File: hr_employee.py
-#  Module: l10n_ch_hr_payroll
-#
-#  Created by sge@open-net.ch
-#
-#  Copyright (c) 2014 Open-Net Ltd.
 ##############################################################################
 #
-#    OpenERP, Open Source Management Solution
-#    Copyright (C) 2004-2010 Tiny SPRL (<http://tiny.be>).
+#    Author: Nicolas Bessi
+#    Copyright 2015 Camptocamp SA
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -25,14 +18,13 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
+from openerp import models, fields
 
 
-from openerp.osv import fields, orm
+class ResCompany(models.Model):
 
+    _inherit = 'res.company'
 
-class hr_employee(orm.Model):
-    _inherit = 'hr.employee'
-    _columns = {
-        'children': fields.integer('Number of Children at school'),
-        'children_student': fields.integer('Number of Children student'),
-        }
+    bvr_background_on_merge = fields.Boolean(
+        'Insert BVR Background with invoice ?'
+    )
