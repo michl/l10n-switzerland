@@ -356,4 +356,4 @@ msgstr ""
 #. module: l10n_ch_payment_slip
 #: code:addons/l10n_ch_payment_slip/payment_slip.py:469
 msgid "Payment slip related to invoice %s due on the %s"
-msgstr ""
+msgstr "Einzahlungsschein für Rechnung %s, zahlbar bis %s"
